@@ -4,17 +4,17 @@
         "value1_3": 80,
         "value1_4": 87,
         "total_val2_1": 345222,
-        "value2_3": 77,
-        "value2_4": 93,
+        "value2_3": 42,
+        "value2_4": 47,
         "total_val3_1": 45000,
-        "value3_3": 87,
-        "value3_4": 70,
+        "value3_3": 57,
+        "value3_4": 50,
         "total_val4_1": 4532,
         "value4_3": 70,
         "value4_4": 75,
         "total_val5_1": 45000,
-        "value5_3": 67,
-        "value5_4": 70,
+        "value5_3": 52,
+        "value5_4": 51,
         "total_val6_1": 23124,
         "value6_3": 90,
         "value6_4": 96,
@@ -82,8 +82,8 @@
 
     },
     "salesRef": {
-        "xLine": 20,
-        "yLine": 20
+        "xLine": 60,
+        "yLine": 60
     },
     "sales":[
         {
@@ -93,9 +93,9 @@
                 {
                     "label":"东北大区",
                     "labelPosition":"belowMarker",
-                    "z":23457.828,
-                    "x":107.9,
-                    "y":88.1
+                    "z":3736,
+                    "x":77.1,
+                    "y":74
                 }
             ]
         },
@@ -107,8 +107,8 @@
                     "label":"华北大区",
                     "labelPosition":"belowMarker",
                     "z":6543,
-                    "x":78.4,
-                    "y":70.9
+                    "x":138.4,
+                    "y":130.9
                 }
             ]
         },
@@ -119,9 +119,9 @@
                 {
                     "label":"华南大区",
                     "labelPosition":"belowMarker",
-                    "z":237,
-                    "x":54.9,
-                    "y":58.1
+                    "z":1900,
+                    "x":44.9,
+                    "y":48.1
                 }
             ]
         },
@@ -132,9 +132,9 @@
                 {
                     "label":"华中大区",
                     "labelPosition":"belowMarker",
-                    "z":1736,
-                    "x":58.1,
-                    "y":44
+                    "z":6789.828,
+                    "x":137.9,
+                    "y":94.1
                 }
             ]
         },
@@ -145,9 +145,9 @@
                 {
                     "label":"江沪大区",
                     "labelPosition":"belowMarker",
-                    "z":3545,
-                    "x":65.9,
-                    "y":93.1
+                    "z":11545,
+                    "x":108.9,
+                    "y":129.1
                 }
             ]
         },
@@ -158,9 +158,9 @@
                 {
                     "label":"京津冀大区",
                     "labelPosition":"belowMarker",
-                    "z":2966,
-                    "x":53.6,
-                    "y":35
+                    "z":3966,
+                    "x":93.6,
+                    "y":98
                 }
             ]
         },
@@ -171,9 +171,9 @@
                 {
                     "label":"西北大区",
                     "labelPosition":"belowMarker",
-                    "z":141,
-                    "x":85.4,
-                    "y":92.8
+                    "z":1841,
+                    "x":102.4,
+                    "y":65.8
                 }
             ]
         },
@@ -184,9 +184,9 @@
                 {
                     "label":"西南大区",
                     "labelPosition":"belowMarker",
-                    "z":697,
-                    "x":139.9,
-                    "y":162.6
+                    "z":2297,
+                    "x":112.9,
+                    "y":79.6
                 }
             ]
         }

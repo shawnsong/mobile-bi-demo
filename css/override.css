@@ -2187,7 +2187,21 @@ html:not([dir="rtl"]) .oj-datagrid-row-header-cell {
     border-radius: 12px;
 }
 
-#overall_accordion #dashC5 a.oj-collapsible-header-icon:before {
+#overall_accordion #dashC1 a.oj-collapsible-header-icon,
+#overall_accordion #dashC2 a.oj-collapsible-header-icon,
+#overall_accordion #dashC3 a.oj-collapsible-header-icon,
+#overall_accordion #dashC4 a.oj-collapsible-header-icon,
+#overall_accordion #dashC5 a.oj-collapsible-header-icon,
+#overall_accordion #dashC6 a.oj-collapsible-header-icon,
+#overall_accordion #dashC7 a.oj-collapsible-header-icon { padding: 0}
+
+#overall_accordion #dashC1 a.oj-collapsible-header-icon:before,
+#overall_accordion #dashC2 a.oj-collapsible-header-icon:before,
+#overall_accordion #dashC3 a.oj-collapsible-header-icon:before,
+#overall_accordion #dashC4 a.oj-collapsible-header-icon:before,
+#overall_accordion #dashC5 a.oj-collapsible-header-icon:before,
+#overall_accordion #dashC6 a.oj-collapsible-header-icon:before,
+#overall_accordion #dashC7 a.oj-collapsible-header-icon:before {
     content: '\2003'
 }
 
