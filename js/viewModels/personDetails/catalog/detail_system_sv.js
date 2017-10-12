@@ -105,7 +105,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     $.ajax({
                         type: "GET",
                         //url: "http://"+baseUrl+"/category/listCustomerData" + stringFilter,
-						url: 'js/data/category/customer.json',
+						url: 'js/data/sales/customer_data.json',
                         dataType: "json",
                         success: function (resp) {
                             self.comboSeriesValue_sale_category_column( resp.sale.chart1.data.series);

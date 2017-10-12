@@ -125,7 +125,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     $.ajax({
                         type: "GET",
                         //url: "http://" + baseUrl + "/category/listCategoryData" + stringFilter,
-                        url: "js/data/category/category.json",
+                        url: "js/data/sales/area_data.json",
                         dataType: "json",
                         success: function (resp) {
                             console.log(resp);
