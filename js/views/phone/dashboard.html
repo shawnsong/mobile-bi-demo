@@ -14,7 +14,7 @@
             <div><p class="dash_subtitle" >总体指标</p></div>
 
 
-            <div id="overall_accordion" data-bind="ojComponent: {component: 'ojAccordion'}">
+            <div id="overall_accordion" data-bind="ojComponent: {component: 'ojAccordion'} ">
                 <div id="dashC1" class="acc_single">
                     <table class="dash_firstTable">
                         <tbody>
@@ -23,22 +23,22 @@
                                     <div><label class="label1_style"  data-bind="style:{}"> 销量(万吨)</label></div>
                                     <div><label class="label_style" data-bind="text: total_val1_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
-                                <td>
+                                <td class="tb">
                                     <div><label class="label1_style"   data-bind="style:{ }"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text:  total_val1_3_perc,style:{ color: value1_3_color}"> 93%</label></div>
                                 </td>
                                 <td>
                                     <div> <label class="label1_style"  data-bind="style:{ }"> 达成率：</label>  <label class="label1_style subColor" data-bind="text:  val1_4_perc,style:{ color: value1_4_color}"> 93%</label></div>
                                     <div><div id="gauge1"  title="" data-bind="ojComponent: {
-             component: 'ojStatusMeterGauge', 
-             min: 0, 
-             max: 100,
-             optionChange: gauge4OptionChange,
-             color:  '#267DB3',
-                                       value: isOverOneNum(value1_4),
-             rootAttributes : {style: isOverOne(value1_4) ? 'transform: rotate(180deg)' : ''},
-             readOnly: true
-                             }"
+                                                        component: 'ojStatusMeterGauge', 
+                                                        min: 0, 
+                                                        max: 100,
+                                                        optionChange: gauge4OptionChange,
+                                                        color:  '#267DB3',
+                                                                                  value: isOverOneNum(value1_4),
+                                                        rootAttributes : {style: isOverOne(value1_4) ? 'transform: rotate(180deg)' : ''},
+                                                        readOnly: true
+                                                                        }"
                                               style=
                                               "margin-top: 10px;
                                               margin-bottom: 5px;
@@ -133,7 +133,7 @@
                                     <div><label class="label1_style"  data-bind="style:{}"> 收入(万元)</label></div>
                                     <div><label class="label_style" data-bind="text: total_val2_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
-                                <td>
+                                <td class="tb">
                                     <div><label class="label1_style"  data-bind="style:{ }"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text:  total_val2_3_perc,style:{ color: value2_3_color}"> 93%</label></div>
                                 </td>
@@ -356,7 +356,7 @@
                                     <div><label class="label1_style"  data-bind="style:{ }"> 毛利(万元)</label></div>
                                     <div><label class="label_style" data-bind="text: total_val3_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
-                                <td>
+                                <td class="tb">
                                     <div><label class="label1_style" data-bind="style:{ }"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text: total_val3_3_perc,style:{ color: value3_3_color}"> 63%</label></div>
                                 </td>
@@ -465,7 +465,7 @@
                                     <div><label class="label1_style"  data-bind="style:{}"> 费用(万元)</label></div>
                                     <div><label class="label_style" data-bind="text: total_val4_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
-                                <td>
+                                <td class="tb">
                                     <div><label class="label1_style" data-bind="style:{ }"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text: total_val4_3_perc,style:{ color: value4_3_color}"> 93%</label></div>
                                 </td>
@@ -642,7 +642,7 @@
                                     <div><label class="label1_style" data-bind="style:{ }"> 经营利润(万元)</label></div>
                                     <div><label class="label_style" data-bind="text: total_val5_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
-                                <td>
+                                <td class="tb">
                                     <div><label class="label1_style" data-bind="style:{ }"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text: total_val5_3_perc,style:{ color: value5_3_color}"> 93%</label></div>
                                 </td>
@@ -931,7 +931,7 @@ readOnly: true
             
                             </tbody>
                         </table>-->
-
+<!--
             <div><p class="dash_subtitle">销售情况</p></div>
 
             <div id='dash-chart-container1' class="acc_celltable">
@@ -977,11 +977,12 @@ readOnly: true
                 </div>
 
             </div>
+            -->
             <div id="dialogWrapper">
                 <div style="display:none" id="catDialog" 
-                     data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide', title: catDialogTitle}">
-                   <div class="oj-dialog-body">
-                     <div data-bind="ojModule:{name: modulePath, animation: oj.ModuleAnimations['coverStart']}" style="background-color:aliceblue">
+                     data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide', title: catDialogTitle, rootAttributes: {style: 'max-height:600px;'}}">
+                   <div class="oj-dialog-body demo-dialog">
+                     <div data-bind="ojModule:{name: modulePath, animation: oj.ModuleAnimations['coverStart']}">
                     </div>
                    </div>
                     <!--
@@ -991,7 +992,7 @@ readOnly: true
                 </div>
              </div>
 
-
+<!--
             <div id="polyLineChart" data-bind="ojComponent: {
         component: 'ojChart',
         type: 'line',
@@ -1006,6 +1007,7 @@ readOnly: true
         }"
                  style="width:100%;min-height:430px;max-height:550px;height: 79vh;">
             </div>
+-->
 
             <div><p class="dash_subtitle">关键KPI</p></div>
 

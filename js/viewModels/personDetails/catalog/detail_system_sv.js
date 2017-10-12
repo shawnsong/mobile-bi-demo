@@ -3,11 +3,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
         'ojs/ojknockout', 'ojs/ojaccordion', 'ojs/ojcollapsible', 'ojs/ojradioset', 'ojs/ojchart', 'ojs/ojtimeline', 'data/globalVars', 'ojs/ojbutton'],
         function (oj, ko, $, dashboard)
         {
-            function CustomerViewModel() {
+            function DetailSystemSVModel() {
                 var self = this;
                 
                 self.onClickBack = function(){
-                    dashboard.onFirstDrillDown();
+                    dashboard.onBackToFirstCatDrillDown();
                 };
                 
                 self.init = function (input) {
@@ -200,7 +200,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-            var model = new CustomerViewModel();
+            var model = new DetailSystemSVModel();
             //model.updateTimelineSeriesValue();
             return model;
 

@@ -1964,7 +1964,7 @@ oj-helper-detect-expansion, .oj-helper-detect-contraction {
     color: green !important;
 }
 #polyLineChart{
-    margin-top: 20px;
+ /*   margin-top: 20px; */
 }
 #polyLineChart text{
     fill: white;
@@ -2322,8 +2322,25 @@ html:not([dir="rtl"]) .oj-datagrid-row-header-cell {
 .success{color: green}
 
 .demo-button .oj-button-text,
-.demo-button .oj-button-icon{
-    background-color: #E7EAEC;
-    color:black;
-    font-size: small;
+.demo-button .oj-button-icon,
+.demo-button.oj-focus,
+.demo-button.oj-focus-highlight,
+.demo-button.oj-hover,
+.demo-button.oj-focus-only,
+.demo-button.oj-active,
+.demo-button.oj-button-jqui.oj-focus-only.oj-button-full-chrome
+{
+    background-color: #E7EAEC !important;
+    color:black !important;
+    font-size: small !important;
+}
+
+.demo-dialog{
+    padding: .3rem;
+}
+
+.demo-chart-header
+{
+    background: #13152a;
+    color: white;
 }

@@ -1,0 +1,71 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="demo-chart-header"><p class="dash_subtitle">销售情况</p></div>
+
+
+<div class="demo-chart">
+    <div class="oj-flex">
+        <div class="oj-flex-item oj-lg-12">
+
+            <div style="    text-align: right;
+                 margin-right: 20px;
+                 fill: white;
+                 font-size: 1.2em;
+                 font-style: italic;
+                 font-weight: 400;
+                 text-anchor: middle;">Z-销量预算 (万吨)</div>
+
+
+            <div id="bubbleChart" data-bind="ojComponent: {
+                             trackResize:'on',
+                             component: 'ojChart',
+                             type: 'bubble',
+                             orientation: 'horizontal',
+                             series: bubbleSeriesValue,
+                             groups: bubbleGroupsValue,
+                             animationOnDataChange: 'auto',
+                             plotArea: plotArea,
+                             hideAndShowBehavior: 'withRescale',
+                             highlightMatch : 'any',
+                             drilling: 'on',
+                             drill: onFirstDrillDown,
+                             legend: {position: 'bottom'},
+                             xAxis: xAxis, yAxis: yAxis,
+                                     hoverBehavior: 'dim',
+                                     selectionMode :'single'
+                             }"
+                 style="width: 100%;
+                 height: 490px; font-size: 1.4em;">
+            </div>
+        </div>
+
+
+
+        <div style="clear:both;">
+        </div>
+    </div>
+</div>
+
+
+<div id="polyLineChart" data-bind="ojComponent: {
+        component: 'ojChart',
+        type: 'line',
+        coordinateSystem: 'polar',
+        polarGridShape: 'polygon',
+        series: polylineSeriesValue,
+        groups: polylineGroupsValue,
+        hideAndShowBehavior: 'withRescale',
+        animationOnDataChange: 'auto',
+        hoverBehavior: 'dim',
+        legend: {position: 'bottom'},
+        plotArea: plotArea
+        }"
+     style="width:100%;">
+</div>
+
+<br/>
+
+
