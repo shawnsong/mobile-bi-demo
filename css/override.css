@@ -2344,3 +2344,6 @@ html:not([dir="rtl"]) .oj-datagrid-row-header-cell {
     background: #13152a;
     color: white;
 }
+.demo-footer-menu{
+    /* background-color: lightgrey; */
+}
