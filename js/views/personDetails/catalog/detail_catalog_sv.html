@@ -1,11 +1,22 @@
 <div class="demo-chart" >
-        <span>销量</span>
-        <div  align="center">
-            <!--第一个柱形start    yAxis: { min: 0, max: yMax_sale_category_column},-->
+    <div class="oj-flex-bar">
+        <div class="oj-flex-bar-start" data-bind="text:'销量'">
+        </div>
+        <div class="oj-flex-bar-end">
+            <button id="back-btn" class="demo-button"
+                    data-bind="click: onClickBack, ojComponent: {
+                    component:'ojButton', 
+                    icons: {start:'oj-fwk-icon-back oj-fwk-icon'},
+                    label: '返回'
+                }"></button>
+        </div>
+    </div>
+    <div  align="center">
+        <!--第一个柱形start    yAxis: { min: 0, max: yMax_sale_category_column},-->
 
-            <div  ></div>
-            <h3 style="margin: 0 auto"  data-bind="text:label_sale_category_column"></h3>
-            <div id="sale_category_column" data-bind="ojComponent: {
+        <div  ></div>
+        <h3 style="margin: 0 auto"  data-bind="text:label_sale_category_column"></h3>
+        <div id="sale_category_column" data-bind="ojComponent: {
                     component: 'ojChart',
                     type: 'combo',
                     dataCursor:'on',
@@ -31,7 +42,7 @@
                     stack: 'off',
                     hoverBehavior: 'none'
                 }" style="max-width:600px;width:100%;height:450px;">
-            </div>
-            <!--第一个柱形stop-->
         </div>
+        <!--第一个柱形stop-->
     </div>
+</div>

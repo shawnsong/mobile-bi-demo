@@ -2,10 +2,10 @@
  * Copyright (c) 2014, 2017, Oracle and/or its affiliates.
  * The Universal Permissive License (UPL), Version 1.0
  */
-define(['knockout', 'ojs/ojcore', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 'ojs/ojgauge', 'ojs/ojtabs', 'ojs/ojinputtext', 'ojs/ojchart',
+define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 'ojs/ojgauge', 'ojs/ojtabs', 'ojs/ojinputtext', 'ojs/ojchart',
     'ojs/ojselectcombobox', 'ojs/ojtabs', 'ojs/ojinputtext', 'ojs/ojinputnumber', 'ojs/ojgauge', 'ojs/ojaccordion', 'ojs/ojcollapsible', 'ojs/ojradioset','ojs/ojdialog',
     'ojs/ojmodule', 'ojs/ojmoduleanimations'],
-        function (ko, oj, data)
+        function (ko, oj, $, data)
         {
             /*
              * Your application specific code will go here
@@ -44,7 +44,7 @@ define(['knockout', 'ojs/ojcore', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 
                 self.catDialogTitle = ko.observable("各品类销售情况");
                 self.firstTitle = "";
                 self.secondTitle = "";
-                self.currentModule = ko.observable('detail_catalog_sv');
+                self.currentModule = ko.observable('dashboard_overallAccordion');
                 
                 self.modulePath = ko.pureComputed(
                     function()
@@ -52,26 +52,34 @@ define(['knockout', 'ojs/ojcore', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 
                       return ('personDetails/catalog/' + self.currentModule());
                     }
                   );
+          
+                self.onOverallAccordionDrillDown = function(){
+                    self.currentModule('dashboard_overallAccordion');
+                    self.catDialogTitle("总体指标");
+                    $("#catDialog").ojDialog("open");
+                };
                 
                 self.onFirstDrillDown = function(event,data){
                     self.currentModule('detail_catalog_sv');
-                    if($( "#catDialog" ).ojDialog( "isOpen" )){
-                        self.catDialogTitle(self.firstTitle);
-                    }
-                    else
-                    {
-                        self.catDialogTitle(data.series);
-                        self.firstTitle = data.series;
-                        $("#catDialog").ojDialog("open");
-                    }
+                    self.catDialogTitle(data.series);
+                    self.firstTitle = data.series;
                 };
                 
+                self.onBackToFirstCatDrillDown = function(){
+                    self.catDialogTitle(self.firstTitle);
+                    self.currentModule('detail_catalog_sv');
+                };
                 
                 self.onSecondDrillDown = function(event,data){
+                    if(!data.group)
+                    {
+                        return;
+                    }
                     self.secondTitle = data.group;
                     self.catDialogTitle(self.firstTitle+" - "+self.secondTitle);
                     self.currentModule('detail_system_sv');
                 };
+                
 
                 self.total_val1_1_color = ko.observable("red");
                 self.value1_3_color = ko.observable("red");
@@ -729,7 +737,9 @@ define(['knockout', 'ojs/ojcore', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 
                  * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
                  */
                 self.handleAttached = function (info) {
-
+                    $("#overall_accordion .tb").click(function(){
+                        self.onOverallAccordionDrillDown();
+                    });
                 };
                 self.testConsole = function (str) {
                     //alert(str);
@@ -1069,7 +1079,6 @@ define(['knockout', 'ojs/ojcore', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 
                  */
                 self.handleBindingsApplied = function (info) {
                     // Implement if needed
-
                 };
 
                 /*
