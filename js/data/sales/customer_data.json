@@ -1,7 +1,7 @@
 {
    "sale":{
       "chart1":{
-         "chartname":"品类客户销量",
+         "chartname":"渠道客户销量",
          "data":{
             "series":[
                {
