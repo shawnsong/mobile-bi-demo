@@ -1,21 +1,61 @@
 
 define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
-        'ojs/ojknockout', 'ojs/ojaccordion', 'ojs/ojcollapsible', 'ojs/ojradioset', 'ojs/ojchart', 'ojs/ojtimeline', 'data/globalVars', 'ojs/ojbutton'],
+    'ojs/ojknockout', 'ojs/ojaccordion', 'ojs/ojcollapsible', 'ojs/ojradioset', 'ojs/ojchart', 'ojs/ojtimeline', 'data/globalVars', 'ojs/ojbutton', 'ojs/ojpopup'],
         function (oj, ko, $, dashboard)
         {
             function DetailSystemSVModel() {
                 var self = this;
-                
-                self.onClickBack = function(){
+
+                self.onClickBack = function () {
                     dashboard.onBackToFirstCatDrillDown();
                 };
+
                 
+                self.clientWidth = ko.observable($(".demo-dialog")[0].clientWidth);
+                self.s1 = ko.observable("width:");
+                self.s2 = ko.observable("px");
+                self.setStyle = ko.computed(function () {
+                    return (self.clientWidth() - 9) + "px";
+                }, this);
+
+
+                self.getPosition = function (event, data) {
+                    /*
+                     var popup = $('#popup1');
+                     popup.ojPopup("option", "position",
+                     {"my": {"horizontal": "start", "vertical": "top"},
+                     "at": {"horizontal": "start", "vertical": "top"},
+                     "offset": {"x": data.offsetX, "y": data.offsetY}});
+                     */
+                };
+
+                self.onPopupMenu = function (event, data) {
+                    //    console.log(self.clientWidth());
+                    //    console.log(dialog); 
+                    var popup = $('#contact');
+                    if (popup.ojPopup('isOpen'))
+                    {
+                        //    popup.ojPopup('close');
+                    } else
+                    {
+                        popup.ojPopup('option', 'tail', 'none');
+                        popup.ojPopup('open', "#popFromHere");
+                        popup.ojPopup("option", "position",
+                                {"my": {"horizontal": "end", "vertical": "top"},
+                                    "at": {"horizontal": "end", "vertical": "top"},
+                                    "offset": {"x": data.offsetX, "y": data.offsetY}});
+                    }
+
+
+                };
+
+
                 self.init = function (input) {
                     if (input) {
 
                         console.log("filter object is :" + JSON.stringify(input));
                     }
-                    
+
                     // 第一个柱形图开始
                     /* toggle button variables */
                     self.stackValue_sale_category_column = ko.observable('');
@@ -54,7 +94,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     self.selectedMenuItem = ko.observable("(None selected yet)");
                     self.val = ko.observableArray(["2015"]);
                     // 第一个柱形图结束
-                   
+
 //============================================================================饼图开始======================================================
                     // 第一个饼图开始
                     self.pie_sale_category_label = ko.observable('');
@@ -65,7 +105,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                         {id: '2D', label: '2D', value: 'off', icon: 'oj-icon demo-2d'},
                         {id: '3D', label: '3D', value: 'on', icon: 'oj-icon demo-3d'}
                     ];
-                    self.threeDValueChange = function(event, data) {
+                    self.threeDValueChange = function (event, data) {
                         self.threeDValue(data.value);
                         return true;
                     }
@@ -79,10 +119,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                         {id: '2D', label: '2D', value: 'off', icon: 'oj-icon demo-2d'},
                         {id: '3D', label: '3D', value: 'on', icon: 'oj-icon demo-3d'}
                     ];
-                    self.threeDValueChange = function(event, data) {
+                    self.threeDValueChange = function (event, data) {
                         self.threeDValue(data.value);
                         return true;
-                    }                    
+                    }
 
 
                     // 第一个饼图结束
@@ -96,8 +136,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                             + "&year=" + filterData.year
                             + "&quarter=" + filterData.quarter
                             + "&month=" + filterData.month
-                        + "&category_1_selection=" + filterData.firstArea
-                        + "&category_2_selection=" + filterData.secondArea
+                            + "&category_1_selection=" + filterData.firstArea
+                            + "&category_2_selection=" + filterData.secondArea
                             + "&change=" + filterData.change
                             + "&dataRoleId=" + chooseFilter.rowId
 
@@ -105,10 +145,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     $.ajax({
                         type: "GET",
                         //url: "http://"+baseUrl+"/category/listCustomerData" + stringFilter,
-						url: 'js/data/sales/customer_data.json',
+                        url: 'js/data/sales/customer_data.json',
                         dataType: "json",
                         success: function (resp) {
-                            self.comboSeriesValue_sale_category_column( resp.sale.chart1.data.series);
+                            self.comboSeriesValue_sale_category_column(resp.sale.chart1.data.series);
                             self.comboGroupsValue_sale_category_column(resp.sale.chart1.data.groups);
                             self.label_sale_category_column(resp.sale.chart1.chartname);
                         },
@@ -148,7 +188,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                  */
                 self.handleAttached = function (info) {
                     // Implement if needed
-
                 };
 
                 self.sale_category_column = function () {
