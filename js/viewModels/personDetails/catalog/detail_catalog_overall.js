@@ -203,7 +203,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                  */
                 self.handleAttached = function (info) {
                     // Implement if needed
-                    alert();
                 };
 
                 self.sale_category_column = function () {
@@ -255,9 +254,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-       //     var model = new DetailCatalogOverallModel();
+            var model = new DetailCatalogOverallModel();
             //model.updateTimelineSeriesValue();
-            return DetailCatalogOverallModel;
+            return model;
 
 
         });
