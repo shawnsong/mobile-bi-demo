@@ -10,7 +10,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     dashboard.onBackToFirstCatDrillDown();
                 };
 
-                self.telLabel = ko.observable("渠道经理:");
+                self.telLabel = ko.observable("渠道经理");
                 self.clientWidth = ko.observable($(".demo-dialog")[0].clientWidth);
                 self.s1 = ko.observable("width:");
                 self.s2 = ko.observable("px");
@@ -30,7 +30,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                 };
 
                 self.onPopupMenu = function (event, data) {
-                    self.telLabel(data.group+"经理: ")
+                    self.telLabel(data.group+"经理")
                     var popup = $('#contact');
                     if (popup.ojPopup('isOpen'))
                     {
