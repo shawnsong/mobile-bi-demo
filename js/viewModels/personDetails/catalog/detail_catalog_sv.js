@@ -96,7 +96,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                 self.init();
 
                 self.refreshView = function () {
-                    //console.log("refreshing");
+                    if(dashboard.firstTitle === "华南大区"){
+                        
+                    }
+                    else{
+                        self.sale_category_column("data/sale_category_column.txt");
+                    }
                     $("#sale_category_column").ojChart("refresh");
                 };
 
@@ -199,7 +204,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                         },
                         error: function (e) {
                             alert('Error: ' + e + "load local value");
-                            self.sale_category_column();
                         }
                     });
                 };
@@ -240,9 +244,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
 
                 };
 
-                self.sale_category_column = function () {
+                self.sale_category_column = function (filepath) {
                     // Implement if needed
-                    var serverURL = "data/sale_category_column.txt"
+                    var serverURL = filepath;
                     $.get(serverURL, function (data) {
                         var obj = eval('(' + data + ')');
                         sale_category_columnSeries = [];
