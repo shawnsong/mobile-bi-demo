@@ -96,12 +96,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                 self.init();
 
                 self.refreshView = function () {
-                    if(dashboard.firstTitle === "华南大区"){
-                        
-                    }
-                    else{
-                        self.sale_category_column("data/sale_category_column.txt");
-                    }
                     $("#sale_category_column").ojChart("refresh");
                 };
 
@@ -128,10 +122,17 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     //&dataRoleId
 
                     console.log('reInitView=' + servURL + stringFilter);
+                    var dataFile = "";
+                    if(dashboard.firstTitle === "华南大区"){
+                        dataFile = "js/data/sales/area_data.json";
+                    }
+                    else{
+                        dataFile = "js/data/sales/area_data_normal.json";
+                    }
                     $.ajax({
                         type: "GET",
                         //url: "http://" + baseUrl + "/category/listCategoryData" + stringFilter,
-                        url: "js/data/sales/area_data.json",
+                        url: dataFile,
                         dataType: "json",
                         success: function (resp) {
                             console.log(resp);
@@ -244,9 +245,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
 
                 };
 
-                self.sale_category_column = function (filepath) {
+                self.sale_category_column = function () {
                     // Implement if needed
-                    var serverURL = filepath;
+                    var serverURL = "data/sale_category_column.txt";
                     $.get(serverURL, function (data) {
                         var obj = eval('(' + data + ')');
                         sale_category_columnSeries = [];
