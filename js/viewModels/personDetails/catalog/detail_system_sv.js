@@ -141,10 +141,17 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                             + "&dataRoleId=" + chooseFilter.rowId
 
                     console.log(stringFilter);
+                    var dataFile = "";
+                    if(dashboard.firstTitle === "华南大区"){
+                        dataFile = 'js/data/sales/customer_data.json';
+                    }
+                    else{
+                        dataFile = 'js/data/sales/customer_data_normal.json';
+                    }
                     $.ajax({
                         type: "GET",
                         //url: "http://"+baseUrl+"/category/listCustomerData" + stringFilter,
-                        url: 'js/data/sales/customer_data.json',
+                        url: dataFile,
                         dataType: "json",
                         success: function (resp) {
                             self.comboSeriesValue_sale_category_column(resp.sale.chart1.data.series);
