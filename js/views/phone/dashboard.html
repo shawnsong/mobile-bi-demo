@@ -24,7 +24,7 @@
                                     <div><label class="label_style" data-bind="text: total_val1_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
                                 <td class="tb">
-                                    <div><label class="label1_style"   data-bind="style:{ }"> 同比</label> </div>
+                                    <div><label class="label1_style"   data-bind="style:{'color':'red' }"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text:  total_val1_3_perc,style:{ color: value1_3_color}"> 93%</label></div>
                                 </td>
                                 <td>
@@ -34,7 +34,7 @@
                                                         min: 0, 
                                                         max: 100,
                                                         optionChange: gauge4OptionChange,
-                                                        color:  '#267DB3',
+                                                        color:  'red',
                                                                                   value: isOverOneNum(value1_4),
                                                         rootAttributes : {style: isOverOne(value1_4) ? 'transform: rotate(180deg)' : ''},
                                                         readOnly: true
@@ -643,7 +643,7 @@
                                     <div><label class="label_style" data-bind="text: total_val5_1,style:{ color: '#A9A9A9'}"> 472,313</label></div>
                                 </td>
                                 <td class="tb">
-                                    <div><label class="label1_style" data-bind="style:{ }"> 同比</label> </div>
+                                    <div><label class="label1_style" data-bind="style:{ 'color': 'red'}"> 同比</label> </div>
                                     <div><label class="label_style subColor" data-bind="text: total_val5_3_perc,style:{ color: value5_3_color}"> 93%</label></div>
                                 </td>
                                 <td>
@@ -653,7 +653,7 @@
              min: 0, 
              max: 100, 
              optionChange: gauge4OptionChange,
-             color:  '#267DB3',
+             color:  'red',
                           value: isOverOneNum(value5_4),
              rootAttributes : {style: isOverOne(value5_4) ? 'transform: rotate(180deg)' : ''},
              readOnly: true
