@@ -30,8 +30,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                 };
 
                 self.onPopupMenu = function (event, data) {
-                    //    console.log(self.clientWidth());
-                    //    console.log(dialog); 
                     var popup = $('#contact');
                     if (popup.ojPopup('isOpen'))
                     {
