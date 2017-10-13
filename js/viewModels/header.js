@@ -17,7 +17,7 @@ define(['knockout', 'ojs/ojcore', 'viewModels/dashboard', 'viewModels/phone/dash
     function HeaderViewModel() {
 
         var self = this;
-        self.Dataval = ko.observable(["year"]);
+        self.Dataval = ko.observable(["week"]);
         filterData.dataFilter = "year";
         self.showInVisible = ko.observable(true);
         self.showAreaInVisible = ko.observable(false);

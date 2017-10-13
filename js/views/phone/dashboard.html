@@ -1008,6 +1008,48 @@ readOnly: true
                  style="width:100%;min-height:430px;max-height:550px;height: 79vh;">
             </div>
 -->
+            <!-- 各区域销量占比饼状图 begin -->
+            <div data-bind="ojModule:{name: 'personDetails/catalog/detail_area_sv'}">
+            </div>
+            <!-- 各区域销量占比饼状图 end -->
+            <br/>
+            
+            <div id="overdue-chart-container">
+                                <span class="dash_subtitle">十大逾期客户 (万元)</span>
+                                <div id="overdueToolbar" aria-label="Chart Display Options Toolbar" aria-controls="barChart"
+                                     data-bind="ojComponent: {component:'ojToolbar'}"
+                                     style="max-width:500px;float:right;">
+                                    <!-- vertical/horizontal toggle button -->
+                                    <div id="radioButtonset" data-bind="ojComponent: {component: 'ojButtonset', focusManagement:'none', checked: overdueBarOrientationValue, chroming: 'half'}" 
+                                         aria-label="Choose an orientation.">
+                                        <!-- ko foreach: overdueBarOrientationOptions -->
+                                        <label data-bind="attr: {for: id}"></label>
+                                        <input type="radio" name="orientation"
+                                               data-bind="value: value, attr: {id: id},
+												   ojComponent: {component: 'ojButton', label: label, 
+																	 icons: {start: icon}, display: 'icons'}"/>
+                                        <!-- /ko -->
+                                    </div>
+                                </div>
+                                <div id="overdue-bar-chart" data-bind="ojComponent: {
+											component: 'ojChart', 
+											type: 'bar', 
+											orientation: overdueBarOrientationValue,
+											stack: overdueBarStackValue,
+											series: overdueBarSeriesValue, 
+											groups: overdueBarGroupsValue, 
+											animationOnDisplay: 'auto',
+											animationOnDataChange: 'auto',
+											hoverBehavior: 'dim',
+											stackLabel: 'on',
+											legend: {textStyle: 'color: white'},
+											stack: 'on',
+											legend: {textStyle: 'color: white', position: 'bottom'},
+										}"
+                                     style="width:100%;height:400px;">
+                                </div>
+
+                            </div>
 
             <div><p class="dash_subtitle">关键KPI</p></div>
 
@@ -1726,42 +1768,7 @@ readOnly: true
                                 </div>
                             </div>
 
-                            <div id="overdue-chart-container">
-                                <span class="dash_subtitle">十大逾期客户 (万元)</span>
-                                <div id="overdueToolbar" aria-label="Chart Display Options Toolbar" aria-controls="barChart"
-                                     data-bind="ojComponent: {component:'ojToolbar'}"
-                                     style="max-width:500px;float:right;">
-                                    <!-- vertical/horizontal toggle button -->
-                                    <div id="radioButtonset" data-bind="ojComponent: {component: 'ojButtonset', focusManagement:'none', checked: overdueBarOrientationValue, chroming: 'half'}" 
-                                         aria-label="Choose an orientation.">
-                                        <!-- ko foreach: overdueBarOrientationOptions -->
-                                        <label data-bind="attr: {for: id}"></label>
-                                        <input type="radio" name="orientation"
-                                               data-bind="value: value, attr: {id: id},
-												   ojComponent: {component: 'ojButton', label: label, 
-																	 icons: {start: icon}, display: 'icons'}"/>
-                                        <!-- /ko -->
-                                    </div>
-                                </div>
-                                <div id="overdue-bar-chart" data-bind="ojComponent: {
-											component: 'ojChart', 
-											type: 'bar', 
-											orientation: overdueBarOrientationValue,
-											stack: overdueBarStackValue,
-											series: overdueBarSeriesValue, 
-											groups: overdueBarGroupsValue, 
-											animationOnDisplay: 'auto',
-											animationOnDataChange: 'auto',
-											hoverBehavior: 'dim',
-											stackLabel: 'on',
-											legend: {textStyle: 'color: white'},
-											stack: 'on',
-											legend: {textStyle: 'color: white', position: 'bottom'},
-										}"
-                                     style="width:100%;height:400px;">
-                                </div>
-
-                            </div>
+                            
                             <div>
 
                             </div>

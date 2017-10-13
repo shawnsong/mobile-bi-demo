@@ -1,98 +1,20 @@
 
-define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
-    'ojs/ojknockout', 'ojs/ojaccordion', 'ojs/ojcollapsible', 'ojs/ojradioset', 'ojs/ojchart', 'ojs/ojtimeline', 'data/globalVars', 'ojs/ojbutton', 'ojs/ojpopup'],
-        function (oj, ko, $, dashboard)
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojaccordion', 'ojs/ojcollapsible',
+    'ojs/ojradioset', 'ojs/ojchart', 'ojs/ojtimeline', 'data/globalVars', 'ojs/ojbutton'],
+        function (oj, ko, $)
         {
-            function DetailSystemSVModel() {
+            function DetailAreaViewModel() {
                 var self = this;
 
-                self.onClickBack = function () {
-                    dashboard.onBackToFirstCatDrillDown();
+                self.afterLoginInit = function (data, event) {
+                    $("#pieChart").ojChart("refresh");
                 };
-
-                self.telLabel = ko.observable("渠道经理:");
-                self.clientWidth = ko.observable($(".demo-dialog")[0].clientWidth);
-                self.s1 = ko.observable("width:");
-                self.s2 = ko.observable("px");
-                self.setStyle = ko.computed(function () {
-                    return (self.clientWidth() - 9) + "px";
-                }, this);
-
-
-                self.getPosition = function (event, data) {
-                    /*
-                     var popup = $('#popup1');
-                     popup.ojPopup("option", "position",
-                     {"my": {"horizontal": "start", "vertical": "top"},
-                     "at": {"horizontal": "start", "vertical": "top"},
-                     "offset": {"x": data.offsetX, "y": data.offsetY}});
-                     */
-                };
-
-                self.onPopupMenu = function (event, data) {
-                    self.telLabel(data.group+"经理: ")
-                    var popup = $('#contact');
-                    if (popup.ojPopup('isOpen'))
-                    {
-                        //    popup.ojPopup('close');
-                    } else
-                    {
-                        popup.ojPopup('option', 'tail', 'none');
-                        popup.ojPopup('open', "#popFromHere");
-//                        popup.ojPopup("option", "position",
-//                                {"my": {"horizontal": "end", "vertical": "top"},
-//                                    "at": {"horizontal": "end", "vertical": "top"},
-//                                    "offset": {"x": 0, "y": 0}});
-                    }
-
-
-                };
-
 
                 self.init = function (input) {
                     if (input) {
 
                         console.log("filter object is :" + JSON.stringify(input));
                     }
-
-                    // 第一个柱形图开始
-                    /* toggle button variables */
-                    self.stackValue_sale_category_column = ko.observable('');
-                    self.orientationValue_sale_category_column = ko.observable('');
-                    /* chart data */
-                    var sale_category_columnSeries = [];
-                    var sale_category_columnGroups = [];
-                    /*
-                     var comboSeries1 = [{name: "销量", type: "bar", items: [{y: 4808.22}, 2644.01, 825.63, 2033.3, {y: 49.8, color: 'red', label: '最低', labelPosition: 'auto'}, 43.12, 6052.43, {y: 8089.22, color: 'green', label: '最高', labelPosition: 'auto'}, 1.56]},
-                     {name: "同比", type: "line", items: [-0.6419, -0.3625, -0.6105, -0.5945, -0.4296, -0.6056, -0.5605, -0.4634, -0.8292], assignedToY2: "on"},
-                     {name: "达成率", type: "line", items: [0.6419, {y: 0.3625, color: 'red', label: '最低:36%', labelPosition: 'auto'}, 0.6105, 0.5945, 0.4296, 0.6056, 0.5605, 0.4634, 0.8292], assignedToY2: "on"}
-                     ];
-                     var comboGroups1 = ["调和油", "玉米油", "花生油", "葵花籽油", "芝麻油", "精品油", "菜籽油", "大豆油", "稻米油"];
-                     */
-                    self.label_sale_category_column = ko.observable("销量-品类口径柱形");
-                    self.comboSeriesValue_sale_category_column = ko.observable(sale_category_columnSeries);
-                    self.comboGroupsValue_sale_category_column = ko.observable(sale_category_columnGroups);
-                    self.yMax_sale_category_column = 10000;
-
-                    var converterFactory_sale_category_column = oj.Validation.converterFactory('number');
-                    var converterOptions_sale_category_column = {style: 'percent'};
-                    self.y2Converter_sale_category_column = converterFactory_sale_category_column.createConverter(converterOptions_sale_category_column);
-
-                    /* toggle buttons*/
-                    self.stackOptions = [
-                        {id: 'unstacked', label: 'unstacked', value: 'off', icon: 'oj-icon demo-bar-unstack'},
-                        {id: 'stacked', label: 'stacked', value: 'on', icon: 'oj-icon demo-bar-stack'}
-                    ];
-                    self.orientationOptions = [
-                        {id: 'vertical', label: 'vertical', value: 'vertical', icon: 'oj-icon demo-bar-vert'},
-                        {id: 'horizontal', label: 'horizontal', value: 'horizontal', icon: 'oj-icon demo-bar-horiz'}
-                    ];
-                    self.menuItemSelect = function (event, ui) {
-                        self.selectedMenuItem(ui.item.children("a").text());
-                    };
-                    self.selectedMenuItem = ko.observable("(None selected yet)");
-                    self.val = ko.observableArray(["2015"]);
-                    // 第一个柱形图结束
 
 //============================================================================饼图开始======================================================
                     // 第一个饼图开始
@@ -107,9 +29,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     self.threeDValueChange = function (event, data) {
                         self.threeDValue(data.value);
                         return true;
-                    }
+                    };
                     //销量第一个饼图结束
-                    //第二个饼图开始
+                    //销量第二个饼图开始
                     self.pie_profit_category_label = ko.observable('');
                     self.pie_profit_category_value = ko.observable([]);
                     self.effectValue = ko.observable('highlightAndExplode');
@@ -121,13 +43,13 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     self.threeDValueChange = function (event, data) {
                         self.threeDValue(data.value);
                         return true;
-                    }
+                    };
 
 
                     // 第一个饼图结束
-                }
-                self.init();
+                };
 
+                self.init();
 
                 self.reInitView = function () {
                     var stringFilter = "?" + "primarySelection=" + (filterData.primarySelection).toUpperCase()
@@ -140,20 +62,29 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                             + "&change=" + filterData.change
                             + "&dataRoleId=" + chooseFilter.rowId
 
-                    console.log(stringFilter);
+                    //    console.log(stringFilter);
                     $.ajax({
                         type: "GET",
-                        //url: "http://"+baseUrl+"/category/listCustomerData" + stringFilter,
-                        url: 'js/data/sales/customer_data.json',
+                        //url: "http://"+baseUrl+"/category/listAreaData" + stringFilter,
+                        url: 'js/data/category/area.json',
                         dataType: "json",
                         success: function (resp) {
-                            self.comboSeriesValue_sale_category_column(resp.sale.chart1.data.series);
-                            self.comboGroupsValue_sale_category_column(resp.sale.chart1.data.groups);
-                            self.label_sale_category_column(resp.sale.chart1.chartname);
+                            self.pie_sale_category_value(resp.sale.chart2.data);
+                            self.pie_sale_category_label(resp.sale.chart2.chartname);
+
+                            self.pie_profit_category_value(resp.grossProfit.chart2.data);
+                            self.pie_profit_category_label(resp.grossProfit.chart2.chartname);
+
                         },
                         error: function (e) {
                             alert('Error: ' + e + "load local value");
-                            self.sale_category_column();
+                            self.sale_area_column();
+                            self.sale_area_channel_customer_column();
+                            self.income_area_column();
+                            self.income_area_channel_customer_column();
+                            self.profit_area_column();
+                            self.stock_area_column();
+                            self.stock_alert_area_column();
                         }
                     });
                 };
@@ -186,26 +117,28 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                  * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
                  */
                 self.handleAttached = function (info) {
-                    // Implement if needed
                 };
 
-                self.sale_category_column = function () {
+
+
+                self.profit_area_column = function () {
                     // Implement if needed
-                    var serverURL = "data/sale_category_column.txt"
+                    var serverURL = "data/profit_area_column.txt"
                     $.get(serverURL, function (data) {
                         var obj = eval('(' + data + ')');
-                        sale_category_columnSeries = [];
-                        sale_category_columnGroups = [];
+                        profit_area_columnSeries = [];
+                        profit_area_columnGroups = [];
                         for (var i = 0; i < obj.groups.length; i++) {
-                            sale_category_columnGroups.push(obj.groups[i]);
+                            profit_area_columnGroups.push(obj.groups[i]);
                         }
                         for (var i = 0; i < obj.series.length; i++) {
-                            sale_category_columnSeries.push(obj.series[i]);
+                            profit_area_columnSeries.push(obj.series[i]);
                         }
-                        self.comboSeriesValue_sale_category_column(sale_category_columnSeries);
-                        self.comboGroupsValue_sale_category_column(sale_category_columnGroups);
+                        self.comboSeriesValue_profit_area_column(profit_area_columnSeries);
+                        self.comboGroupsValue_profit_area_column(profit_area_columnGroups);
                     });
                 };
+
 
                 /**
                  * Optional ViewModel method invoked after the bindings are applied on this View.
@@ -217,7 +150,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                  */
                 self.handleBindingsApplied = function (info) {
                     // Implement if needed
-
                 };
 
                 /*
@@ -238,9 +170,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-            var model = new DetailSystemSVModel();
             //model.updateTimelineSeriesValue();
-            return model;
+            return new DetailAreaViewModel();
 
 
         });

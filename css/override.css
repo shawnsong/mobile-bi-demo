@@ -1150,7 +1150,8 @@ li.peoplephone div div a.people-phone-mobile-icon {
 
 
 #categoryDetailsArea .oj-accordion-collapsible>.oj-collapsible-header,
-.demo-chart span, .demo-chart .oj-flex-bar-start{
+.demo-chart span, .demo-chart .oj-flex-bar-start,
+.demo-detail-area-sv .oj-accordion-collapsible>.oj-collapsible-header{
     padding-top: 3px;
     padding-bottom: 3px;
     border: none;
@@ -1167,7 +1168,8 @@ li.peoplephone div div a.people-phone-mobile-icon {
 
 
 #categoryDetailsArea .oj-collapsible-wrapper h3, #categoryDetailsArea .oj-collapsible-wrapper text,#categoryDetailsArea .oj-collapsible-wrapper div,
-.demo-chart h3, .demo-chart div text
+.demo-chart h3, .demo-chart div text,
+.demo-detail-area-sv h3, .demo-detail-area-sv div text
 {
     color:white;
     fill:white;
@@ -2345,5 +2347,5 @@ html:not([dir="rtl"]) .oj-datagrid-row-header-cell {
     color: white;
 }
 .demo-footer-menu{
-    /* background-color: lightgrey; */
+  background-color: rgba(255,255,255,0.9)
 }
