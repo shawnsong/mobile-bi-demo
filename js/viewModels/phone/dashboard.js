@@ -753,19 +753,19 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetai
                     });
                     //收入
                     $("#overall_accordion .overall_dashC2").click(function(){
-                        self.onOverallOtherDrillDown("收入", "js/data/sales/area_data.json");
+                        self.onOverallOtherDrillDown("收入", "js/data/sales/income.json");
                     });
                     //毛利
                     $("#overall_accordion .overall_dashC3").click(function(){
-                        self.onOverallOtherDrillDown("毛利", "js/data/sales/area_data.json");
+                        self.onOverallOtherDrillDown("毛利", "js/data/sales/gross_profit.json");
                     });
                     //费用
                     $("#overall_accordion .overall_dashC4").click(function(){
-                        self.onOverallOtherDrillDown("费用", "js/data/sales/area_data_normal.json");
+                        self.onOverallOtherDrillDown("费用", "js/data/sales/expense.json");
                     });
                     //经管利润
                     $("#overall_accordion .overall_dashC5").click(function(){
-                        self.onOverallOtherDrillDown("经管利润", "js/data/sales/area_data.json");
+                        self.onOverallOtherDrillDown("经管利润", "js/data/sales/profit.json");
                     });
                 };
                 self.testConsole = function (str) {
