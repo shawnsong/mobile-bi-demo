@@ -11,31 +11,31 @@
                      {
                         "label":"",
                         "labelPosition":"auto",
-                        "y":11320.535,
+                        "y":4320.535,
                         "color":"#267DB3"
                      },
                      {
                         "label":"",
                         "labelPosition":"auto",
-                        "y":7202.839,
+                        "y":6202.839,
                         "color":"#267DB3"
                      },
                      {
                         "label":"",
                         "labelPosition":"auto",
-                        "y":4733.0,
+                        "y":7733.0,
                         "color":"#267DB3"
                      },
                      {
                         "label":"",
                         "labelPosition":"auto",
-                        "y":5522.969,
+                        "y":9522.969,
                         "color":"#267DB3"
                      },
                      {
                         "label":"",
                         "labelPosition":"auto",
-                        "y":6630.814,
+                        "y":8630.814,
                         "color":"#267DB3"
                      },
                      {
@@ -47,7 +47,7 @@
                      {
                         "label":"",
                         "labelPosition":"auto",
-                        "y":11681.126,
+                        "y":5681.126,
                         "color":"#267DB3"
                      },
                      {
@@ -113,13 +113,7 @@
       "chart2":{
          "chartname":"区域品类销量",
          "data":[
-            {
-               "id":"s1",
-               "name":"三线",
-               "items":[
-                  0.18
-               ]
-            },
+            
             {
                "id":"s2",
                "name":"大豆油",
