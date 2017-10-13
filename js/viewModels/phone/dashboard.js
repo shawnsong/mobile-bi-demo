@@ -15,6 +15,7 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetai
             function DashboardViewModel() {
                 var self = this;
                 self.thresholdValues = [{max: 75}, {max: 85}, {}];
+                self.overallDataFile = ko.observable();
                 self.gauge4OptionChange = function (e, data) {
                     /*
                      if (data.option == "value") {
@@ -56,7 +57,14 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetai
           
                 self.onOverallAccordionDrillDown = function(){
                     self.currentModule('dashboard_overallAccordion');
-                    self.catDialogTitle("总体指标");
+                    self.catDialogTitle("销量");
+                    $("#catDialog").ojDialog("open");
+                };
+                
+                self.onOverallOtherDrillDown = function(title, dataFile){
+                    self.overallDataFile(dataFile);
+                    self.currentModule('detail_catalog_overall');
+                    self.catDialogTitle(title);
                     $("#catDialog").ojDialog("open");
                 };
                 
@@ -739,8 +747,25 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetai
                  * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
                  */
                 self.handleAttached = function (info) {
-                    $("#overall_accordion .tb").click(function(){
+                    //销量
+                    $("#overall_accordion .overall_dashC1").click(function(){
                         self.onOverallAccordionDrillDown();
+                    });
+                    //收入
+                    $("#overall_accordion .overall_dashC2").click(function(){
+                        self.onOverallOtherDrillDown("收入", "js/data/sales/area_data.json");
+                    });
+                    //毛利
+                    $("#overall_accordion .overall_dashC3").click(function(){
+                        self.onOverallOtherDrillDown("毛利", "js/data/sales/area_data.json");
+                    });
+                    //费用
+                    $("#overall_accordion .overall_dashC4").click(function(){
+                        self.onOverallOtherDrillDown("费用", "js/data/sales/area_data_normal.json");
+                    });
+                    //经管利润
+                    $("#overall_accordion .overall_dashC5").click(function(){
+                        self.onOverallOtherDrillDown("经管利润", "js/data/sales/area_data.json");
                     });
                 };
                 self.testConsole = function (str) {
