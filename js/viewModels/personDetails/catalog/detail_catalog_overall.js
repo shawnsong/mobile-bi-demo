@@ -254,9 +254,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
              * each time the view is displayed.  Return an instance of the ViewModel if
              * only one instance of the ViewModel is needed.
              */
-            var model = new DetailCatalogOverallModel();
+         //   var model = new DetailCatalogOverallModel();
             //model.updateTimelineSeriesValue();
-            return model;
+            return DetailCatalogOverallModel;
 
 
         });
