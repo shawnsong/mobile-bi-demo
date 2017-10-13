@@ -62,7 +62,7 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetai
                 };
                 
                 self.onOverallOtherDrillDown = function(title, dataFile){
-                    self.currentModule('');
+                    self.currentModule('dashboard_overallAccordion');
                     self.overallDataFile(dataFile);
                     self.currentModule('detail_catalog_overall');
                     self.catDialogTitle(title);
