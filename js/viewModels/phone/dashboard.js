@@ -764,9 +764,9 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetai
                     $("#overall_accordion .overall_dashC4").click(function(){
                         self.onOverallOtherDrillDown("费用", "js/data/sales/expense.json");
                     });
-                    //经管利润
+                    //经营利润
                     $("#overall_accordion .overall_dashC5").click(function(){
-                        self.onOverallOtherDrillDown("经管利润", "js/data/sales/profit.json");
+                        self.onOverallOtherDrillDown("经营利润", "js/data/sales/profit.json");
                     });
                 };
                 self.testConsole = function (str) {

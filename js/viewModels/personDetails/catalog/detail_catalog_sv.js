@@ -32,7 +32,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                      ];
                      var comboGroups1 = ["调和油", "玉米油", "花生油", "葵花籽油", "芝麻油", "精品油", "菜籽油", "大豆油", "稻米油"];
                      */
-                    self.label_sale_category_column = ko.observable("销量-品类口径柱形");
+                    self.label_sale_category_column = ko.observable("");
                     self.comboSeriesValue_sale_category_column = ko.observable(sale_category_columnSeries);
                     self.comboGroupsValue_sale_category_column = ko.observable(sale_category_columnGroups);
                     self.yMax_sale_category_column = 10000;
