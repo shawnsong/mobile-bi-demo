@@ -39,10 +39,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'viewModels/phone/dashboard',
                     {
                         popup.ojPopup('option', 'tail', 'none');
                         popup.ojPopup('open', "#popFromHere");
-//                        popup.ojPopup("option", "position",
-//                                {"my": {"horizontal": "end", "vertical": "top"},
-//                                    "at": {"horizontal": "end", "vertical": "top"},
-//                                    "offset": {"x": 0, "y": 0}});
+                        popup.ojPopup("option", "position",
+                                {"my": {"horizontal": "end", "vertical": "top"},
+                                    "at": {"horizontal": "end", "vertical": "top"},
+                                    "offset": {"x": 0, "y": 0}});
                     }
 
 
