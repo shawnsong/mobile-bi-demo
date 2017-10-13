@@ -43,30 +43,31 @@
                 }" style="max-width:600px;width:100%;height:450px;">
         </div>
         <span id="popFromHere"></span>
-        <div id="contact" class="oj-hybrid-applayout-footer" style="display:none;" data-bind="style: {width:setStyle}, ojComponent:{component: 'ojPopup',
+        <!--style: {width:setStyle}, oj-sm-flex-items-initial oj-sm-justify-content-center demo-footer-menu-->
+        <div id="contact" class="demo-footer-menu" style="display:none;" data-bind=" ojComponent:{component: 'ojPopup',
                     tail: 'simple', modality:'modeless'}">
-            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center demo-footer-menu">
+            <div class="oj-flex ">
                 <div class="oj-flex oj-sm-align-items-center">
                     <div class="oj-flext-item">
-                        <a href="tel:+16505067000">
+                        <a href="tel:+862123023032">
                             <img class="demo-icon-font-24" src="./css/images/func_phone_16@2x.png" style="">
                         </a>
                     </div>
                     <div class="oj-flext-item">
-                        <a href="tel:+16505067000">+1.650.506.7000
+                        <a href="tel:+862123023032" data-bind="text: telLabel()+'+862123023032'">
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center demo-footer-menu" style="border-top-color: lightgrey;">
+            <div class="oj-flex">
                 <div class="oj-flex oj-sm-align-items-center">
                     <div class="oj-flext-item">
-                        <a href="mailto:example@oracle.com">
+                        <a href="mailto:ivan.ding@oracle.com">
                             <img class="demo-icon-font-24" src="./css/images/func_email_18@2x.png" style="">
                         </a>
                     </div>
                     <div class="oj-flext-item">
-                        <a href="mailto:example@oracle.com"> example@oracle.com
+                        <a href="mailto:ivan.ding@oracle.com"> ivan.ding@oracle.com
                         </a>
                     </div>
                 </div>

@@ -2,10 +2,11 @@
  * Copyright (c) 2014, 2017, Oracle and/or its affiliates.
  * The Universal Permissive License (UPL), Version 1.0
  */
-define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'ojs/ojknockout', 'ojs/ojchart', 'ojs/ojgauge', 'ojs/ojtabs', 'ojs/ojinputtext', 'ojs/ojchart',
+define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'viewModels/personDetails/catalog/detail_area_sv', 
+    'ojs/ojknockout', 'ojs/ojchart', 'ojs/ojgauge', 'ojs/ojtabs', 'ojs/ojinputtext', 'ojs/ojchart',
     'ojs/ojselectcombobox', 'ojs/ojtabs', 'ojs/ojinputtext', 'ojs/ojinputnumber', 'ojs/ojgauge', 'ojs/ojaccordion', 'ojs/ojcollapsible', 'ojs/ojradioset','ojs/ojdialog',
     'ojs/ojmodule', 'ojs/ojmoduleanimations'],
-        function (ko, oj, $, data)
+        function (ko, oj, $, data, detail_area_sv)
         {
             /*
              * Your application specific code will go here
@@ -702,6 +703,7 @@ define(['knockout', 'ojs/ojcore', 'jquery', 'data/data', 'ojs/ojknockout', 'ojs/
 
                 self.initView = function () {
                     self.getData('year');
+                    detail_area_sv.afterLoginInit();
                 };
 
                 // Media queries for repsonsive layouts
